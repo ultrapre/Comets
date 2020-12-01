@@ -12,23 +12,19 @@ jobs:
     steps:
     - name: checkout actions
     - uses: actions/checkout@v1
-
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-		
     - name: Update
       run: |
         python update.py
-		
     - name: commit
       run: |
         git config --global user.email magsec2@gmail.com
         git config --global user.name ultrapre
         git add .
         git commit -m "update" -a
-		
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
