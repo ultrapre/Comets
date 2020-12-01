@@ -1,0 +1,927 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>COBS - Comet OBServation database</title>
+
+<!-- stylesheets -->
+
+<link href="styles/cobs_style_dark.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="scripts/DataTables/datatables.dark.min.css" />
+<link rel="stylesheet" type="text/css" href="scripts/DataTables/Buttons-1.6.1/css/buttons.dataTables.dark.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="scripts/DataTables/Responsive-2.2.3/css/responsive.dataTables.min.css" />
+
+  <link rel="icon" type="image/png" href="images/structure/cobs.png" />
+
+<!-- end stylesheets -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-16598367-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-16598367-1');
+</script>
+
+<script type="text/javascript" src="scripts/DataTables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="scripts/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="scripts/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="scripts/DataTables/Responsive-2.2.3/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="scripts/DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="scripts/DataTables/Buttons-1.6.1/js/buttons.colVis.min.js"></script>
+<script type="text/javascript" src="scripts/DataTables/Buttons-1.6.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="scripts/DataTables/JSZip-3.1.3/jszip.min.js"></script>
+
+
+
+<!-- End Google Analytics -->  
+  
+</head>
+
+<body>
+  <div class="container">
+
+<!-- header -->
+
+  
+
+       
+<!-- HEADER -->
+  <div id="header">
+            <div class="inner-header">
+        <h1><a href="/">COBS - Comet observers database</a></h1>
+
+        <div id="login-box">
+          <ul>
+
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+
+          </ul>
+        </div>
+        <div id="main-navigation">
+          <ul>
+
+          <li class="home_s hometab"><strong><a href="/" class="tab">Home</a></strong></li>
+
+          <li class="news newstab"><strong><a href="/news?page=1" class="tab">News</a></strong></li>
+
+          <li class="obs obstab" id="obs"><strong><a href="/observations?type=vis" class="tab">Observations</a></strong>
+            <ul id="obs-menu">
+              <li><a href="/observations?type=vis">Visual observations</a></li>
+              <li><a href="/observations?type=ccd">CCD observations</a></li>
+              <li><a href="/observations?type=multiple">Multiple observations</a></li>
+            </ul>
+          </li>
+		  
+
+          <li class="analysis analysistab"><strong><a href="/analysis" class="tab">Analysis</a></strong></li>
+
+          <li class="statistics statisticstab"><strong><a href="/statistics" class="tab">Statistics</a></strong></li>
+
+          <li class="help helptab" id="help"><strong><a href="/help?page=data_policy" class="tab">Help</a></strong>
+            <ul id="help-menu">
+              <li><a href="/help?page=data_policy">Data usage guidelines</a></li>
+              <li><a href="/help?page=icq_format">ICQ format explained</a></li>
+              <li><a href="/help?page=observer_list">COBS Observers</a></li>          
+              <li><a href="/help?page=contact">COBS Contacts</a></li>                   
+              <li><a href="/help?page=references">COBS References</a></li>              
+            </ul>
+          </li>
+
+          <li class="links linkstab"><strong><a href="/links" class="tab">Links</a></strong></li>
+
+        </ul>
+            </div>
+          </div>
+  </div>
+
+
+<!-- end header -->
+
+  
+
+       
+<!-- PAGE CONTENT -->
+    <div class="first-page-top">
+
+
+      <!-- FIRST PAGE IMAGE -->
+	<div class="first-page-content-right">
+		<div class="head">
+			<h2>Latest image</h2>
+		</div>	
+	  <div class="first-page-image-box">
+		
+          <div class="first-page-image">
+
+            <a href="images/latest.jpg" target="_empty"><img src="images/latest_t.jpg" alt="" height="240" border="0" /></a>
+                      <div class="first-page-image-description">
+                            <p><b>Comet C/2020 F3 (NEOWISE)</b><br>
+Comet C/2020 F3 (NEOWISE) obtained on 2020 July 27 (21h10-21h25UT) with 300 mm, f/4.7 lens and Canon EOS 6D DSLR. Exposure time was 15x60 seconds at ISO 1600.
+<br>Copyright Â© 2020 by H. Mikuz, Ärni Vrh Observatory.</p>
+                      </div>
+
+          </div>
+        </div>
+		</div>
+
+		<div class="first-page-welcome-content">
+		<div class="head">
+        <h2>Welcome to COBS!</h2>
+		</div>
+		<div class="pad">
+
+		<p><a href="/"><strong>Comet Observation database (COBS)</strong></a> saw first light in 2010 and is maintained by <a href="http://www.observatorij.org">Crni Vrh Observatory</a>. It is a free and unique service for comet observers worldwide which allows submission, display and analysis of comet data in a single location.</p> 
+		<p>Amateur astronomers can make valuable contributions to comet science by observing comets and submitting their observations to COBS as professional astronomers typically do not have telescope time required to acquire regular observations. We therefore encourage comet observers worldwide to submit their observations and contribute to the COBS database.</p>
+		<p>Registered observers may submit observations using a web based form which which stores the observations in an SQL database and stores them in <a href="/help?page=icq_format">ICQ format</a>. Observations may be queried and plotted in the web site or exported for further processing, analysis and publication. The database currently contains more than 255000 comet observations of more than 1300 different comets and represents the largest available database of comet observations.</p>
+		<p>The data stored in COBS is freely available to everyone who honors <span class="obs_title"><a href="/help?page=data_policy"><strong>our data usage policy</strong></a></span>. Please cite COBS as the reference if you use it for comet studies.</p>        
+        </div>
+      </div>
+	 </div>
+
+    <div class="first-page-bottom">
+
+	<div class="first-page-content-right">
+		<div class="head">
+			<h2>Latest lightcurve</h2>
+		</div>	
+      <div class="first-page-image-box">
+        <div class="first-page-image">
+          <a href="analysis2?col=comet_id&amp;id=1958&amp;start_date=2020/09/01 00:00&amp;end_date=2021/01/31 00:00&amp;plot_type=0&amp;perihelion=0&amp;fit_curve=1&amp;obs_type=3" target="_empty"><img src="images/latest-lightcurve_dark.png" alt="" width="360" border="0" /></a>
+
+          <div class="first-page-image-description">
+              <p>Light-curve of C/2020 S3 (Erasmus) (Dec 01, 2020).</p>
+            </div>
+
+        </div>
+      </div>
+	  </div>
+
+<!-- RECENT OBSERVATIONS -->
+<div class="first-page-content">
+	<div class="head">
+		<h3><a href="/recent">Recent observations</a></h3>
+	</div>
+	<div class="pad-obs-list">
+		<div class="first-page-obs-list">
+			<script type="text/javascript" >
+			$(document).ready(function() {
+			    var table = $('#recent_obs').DataTable( {
+			        "pageLength": 10,
+                    "lengthMenu": [[10, 20, -1], [10, 20, "All"]],
+			        "pagingType": "full_numbers",
+			        "ordering": false,
+			        "paging": true,
+				    "bFilter": false,
+				    "columnDefs": [
+                        { className: "dt-center", "targets": [0,2,11] },
+                        { className: "dt-right", "targets": [3,4,6,7,8,9,10] },
+					    { className: "dt-head-left", "targets": [1] },
+                    ],
+				  "dom": 'tlrp'
+			      } );
+			} );
+			</script>
+
+            <table width="100%" cellpadding="2" class="row-border compact" id="recent_obs">
+                <thead>
+                    <tr>
+						<th>Type</th>
+						<th>Comet name</th>
+						<th>Obs date</th>
+						<th>Mag</th>
+						<th>App</th>
+						<th>T</th>
+						<th>Pow</th>
+						<th>Dia</th>
+						<th>DC</th>
+						<th>Tail</th>
+						<th>PA</th>
+	                    <th>Obs</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 30.30</td>
+					<td> 6.4 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>20</td>
+					<td>  5   </td>
+					<td> 6/</td>
+					<td>     </td>
+					<td></td>
+					<td>GOI  </td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 29.30</td>
+					<td> 6.5 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>20</td>
+					<td>  5   </td>
+					<td> 7 </td>
+					<td>  0.4 </td>
+					<td>270</td>
+					<td>GOI  </td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 29.30</td>
+					<td> 6.7 </td>
+					<td> 15.0</td>
+					<td>L</td>
+					<td>38</td>
+					<td>  5   </td>
+					<td> 7 </td>
+					<td>     </td>
+					<td></td>
+					<td>SOU01</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 29.30</td>
+					<td> 6.6 </td>
+					<td>  7.0</td>
+					<td>B</td>
+					<td>15</td>
+					<td>  5   </td>
+					<td> 7/</td>
+					<td>     </td>
+					<td></td>
+					<td>SOU01</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 29.29</td>
+					<td> 6.8 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>25</td>
+					<td>  6   </td>
+					<td> 7 </td>
+					<td>     </td>
+					<td></td>
+					<td>DES01</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 M3</td>
+					<td>2020 11 29.17</td>
+					<td> 10.0:</td>
+					<td> 25.0</td>
+					<td>C</td>
+					<td>62</td>
+					<td>& 4   </td>
+					<td> 3 </td>
+					<td>     </td>
+					<td></td>
+					<td>DECaa</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 28.30</td>
+					<td> 6.7 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>20</td>
+					<td>  4   </td>
+					<td> 7 </td>
+					<td>     </td>
+					<td></td>
+					<td>GOI  </td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 28.28</td>
+					<td> 7.0 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>25</td>
+					<td>  6   </td>
+					<td> 6/</td>
+					<td>     </td>
+					<td></td>
+					<td>DES01</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 28.25</td>
+					<td> 6.8 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>25</td>
+					<td>  3   </td>
+					<td> 7/</td>
+					<td>  0.4 </td>
+					<td>270</td>
+					<td>GON05</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 P1</td>
+					<td>2020 11 28.24</td>
+					<td> 11.5 </td>
+					<td>20.3</td>
+					<td>T</td>
+					<td>100</td>
+					<td>     </td>
+					<td> 1 </td>
+					<td>  0.3 </td>
+					<td>330</td>
+					<td>GON05</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 M3</td>
+					<td>2020 11 28.23</td>
+					<td> 7.8 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>25</td>
+					<td> 12   </td>
+					<td> 2/</td>
+					<td>     </td>
+					<td></td>
+					<td>GON05</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 M3</td>
+					<td>2020 11 28.06</td>
+					<td> 7.8 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>25</td>
+					<td>  8   </td>
+					<td> 3 </td>
+					<td>     </td>
+					<td></td>
+					<td>RES  </td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 27.91</td>
+					<td> 7.3:</td>
+					<td>  8.0</td>
+					<td>B</td>
+					<td>20</td>
+					<td>     </td>
+					<td></td>
+					<td>     </td>
+					<td></td>
+					<td>GUOaa</td>
+				</tr>
+
+				<tr>
+					<td>C</td>
+					<td>C/2020 M3</td>
+					<td>2020 11 27.88</td>
+					<td> 8.4 </td>
+					<td> 20.0</td>
+					<td>A</td>
+					<td>a 60</td>
+					<td>  3   </td>
+					<td></td>
+					<td>     </td>
+					<td></td>
+					<td>PAP04</td>
+				</tr>
+
+				<tr>
+					<td>C</td>
+					<td>400P</td>
+					<td>2020 11 27.77</td>
+					<td> 19.0 </td>
+					<td> 50.0</td>
+					<td>A</td>
+					<td>a 60</td>
+					<td>  0.8 </td>
+					<td></td>
+					<td>     </td>
+					<td></td>
+					<td>PAP04</td>
+				</tr>
+
+				<tr>
+					<td>C</td>
+					<td>P/2020 T3</td>
+					<td>2020 11 27.77</td>
+					<td> 18.0 </td>
+					<td> 50.0</td>
+					<td>A</td>
+					<td>a 60</td>
+					<td>  0.9 </td>
+					<td></td>
+					<td>     </td>
+					<td></td>
+					<td>PAP04</td>
+				</tr>
+
+				<tr>
+					<td>C</td>
+					<td>C/2020 U3</td>
+					<td>2020 11 27.77</td>
+					<td> 19.5 </td>
+					<td> 50.0</td>
+					<td>A</td>
+					<td>a 60</td>
+					<td>  0.4 </td>
+					<td></td>
+					<td>     </td>
+					<td></td>
+					<td>PAP04</td>
+				</tr>
+
+				<tr>
+					<td>V</td>
+					<td>C/2020 S3</td>
+					<td>2020 11 27.28</td>
+					<td> 7.1 </td>
+					<td> 10.0</td>
+					<td>B</td>
+					<td>25</td>
+					<td>  6   </td>
+					<td> 6 </td>
+					<td>     </td>
+					<td></td>
+					<td>DES01</td>
+				</tr>
+
+				<tr>
+					<td>C</td>
+					<td>101P</td>
+					<td>2020 11 27.07</td>
+					<td> 18.5 </td>
+					<td> 50.0</td>
+					<td>A</td>
+					<td>a 60</td>
+					<td>  0.5 </td>
+					<td></td>
+					<td>     </td>
+					<td></td>
+					<td>PAP04</td>
+				</tr>
+
+				<tr>
+					<td>C</td>
+					<td>397P</td>
+					<td>2020 11 27.01</td>
+					<td> 18.9 </td>
+					<td> 50.0</td>
+					<td>A</td>
+					<td>a 60</td>
+					<td>  0.4 </td>
+					<td></td>
+					<td>     </td>
+					<td></td>
+					<td>PAP04</td>
+				</tr>
+
+				</tbody>
+			</table>
+			<p style="margin-top: 5px"><a href="/recent" class="more-link">more...</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- COMET OBSERVING PLANER -->
+	<div class="first-page-bottom">
+		<div class="first-page-content-right">
+		<div class="head">
+        <h3>Comet Observing Planner</h3>
+		</div>
+			<div class="first-page-container-right">
+				<div class="pad">
+                            <form action="session" method="post">
+                            <table>
+                                <tr>
+                                    <td>Start session:</td>
+                                    <td>
+              							<select name="start_date2" id="start_date2" style="width:175px">
+            								<option value="99">Select session start</option>
+                							<option value="0">Sun set</option>
+                							<option value="-6">End of civil twilight</option>
+                							<option value="-12">End of nautical twilight</option>
+                							<option value="-18">End of astronomical twilight</option>
+              							</select>
+                                  </td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>
+                                      <input name="start_date" type="text" id="start_date" size="24" maxlength="16" value="YYYY/MM/DD hh:mm"/>
+								</td>
+                                </tr>
+                                <tr>
+                                    <td>End session:</td>
+                                    <td>
+              							<select name="end_date2" id="end_date2" style="width:175px">
+            								<option value="99">Select session start</option>
+                							<option value="-18">Begin of astronomical twilight</option>
+                                            <option value="-12">Begin of nautical twilight</option> 
+                                            <option value="-6">Begin of civil twilight</option>
+                                            <option value="0">Sun rise</option>
+              							</select>
+                                  </td>
+                                 </tr>
+                              <tr>
+                                <td></td>
+                                <td>
+                                      <input name="end_date" type="text" id="end_date" size="24" maxlength="16" value="YYYY/MM/DD hh:mm"/>
+								</td>
+                                </tr>
+							
+                                <tr>
+                                    <td>Limiting mag:</td>
+                                    <td><input name="mag_lim" type="text" id="mag_lim" size="24" maxlength="2" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Min altitude:</td>
+                                    <td><input name="min_altitude" type="text" id="min_altitude" size="24" maxlength="2" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Min Solar Elongation:</td>
+                                    <td><input name="min_sol_elong" type="text" id="min_sol_elong" size="24" maxlength="3" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Min Lunar Elongation:</td>
+                                    <td><input name="min_moon_elong" type="text" id="min_moon_elong" size="24" maxlength="3" /></td>
+                                </tr>                                
+                                <tr>
+                                    <td><input type="submit" name="SUBMIT" id="SUBMIT" value="Submit" /></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- CURRENT COMET MAGNITUDES -->
+
+		<div class="first-page-content">
+		<div class="head">
+        <h3>Current comet magnitudes and observable region</h3>
+		</div>
+		<div class="pad">
+		<div class="first-page-obs-list">
+			<script type="text/javascript" >
+			$(document).ready(function() {
+			    var table = $('#current_mag').DataTable( {
+			        "pageLength": 10,
+                    "lengthMenu": [[10, 25, -1], [10, 25, "All"]],
+			        "pagingType": "full_numbers",
+			        "ordering": false,
+			        "paging": true,
+				    "bFilter": false,
+				    "columnDefs": [
+                        { className: "dt-center", "targets": [2,3,4,5] },
+                        { className: "dt-right", "targets": [1] },
+					    { className: "dt-head-left", "targets": [0] },
+                    ],
+				  "dom": 'tlrp'
+			      } );
+			} );
+			</script>
+
+            <table width="100%" cellpadding="2" class="row-border compact" id="current_mag">
+                <thead>
+                    <tr>
+						<th>Comet name</th>
+						<th>Mag</th>
+						<th>Trend</th>
+						<th>Observable</th>
+						<th>Visiblity<br>45N</th>
+						<th>Visiblity<br>45S</th>
+					</tr>
+				</thead>
+				<tbody>
+
+
+				<tr>
+					<td>C/2020 S3 (Erasmus)</td>
+					<td>6.5</td>
+					<td>bright</td>
+					<td>66N to 90S</td>
+					<td>Early evening</td>
+					<td>Early evening</td>
+				</tr>
+
+				<tr>
+					<td>141P-B/Machholz</td>
+					<td>7.0</td>
+					<td>fade</td>
+					<td>72N to 90S</td>
+					<td>Early evening</td>
+					<td>Early evening</td>
+				</tr>
+
+				<tr>
+					<td>C/2020 M3 (ATLAS)</td>
+					<td>8.5</td>
+					<td>fade</td>
+					<td>90N to 65S</td>
+					<td>Best morning</td>
+					<td>Best morning</td>
+				</tr>
+
+				<tr>
+					<td>141P/Machholz</td>
+					<td>9.5</td>
+					<td>bright</td>
+					<td>80N to 90S</td>
+					<td>Evening</td>
+					<td>Evening</td>
+				</tr>
+
+				<tr>
+					<td>141P-A/Machholz</td>
+					<td>9.5</td>
+					<td>fade</td>
+					<td>79N to 90S</td>
+					<td>Early evening</td>
+					<td>Early evening</td>
+				</tr>
+
+				<tr>
+					<td>141P-D/Machholz</td>
+					<td>10.0</td>
+					<td>fade</td>
+					<td>79N to 90S</td>
+					<td>Early evening</td>
+					<td>Early evening</td>
+				</tr>
+
+				<tr>
+					<td>88P/Howell</td>
+					<td>10.0</td>
+					<td>fade</td>
+					<td>68N to 90S</td>
+					<td>Evening</td>
+					<td>Evening</td>
+				</tr>
+
+				<tr>
+					<td>156P/Russell-LINEAR</td>
+					<td>10.5</td>
+					<td>fade</td>
+					<td>90N to 81S</td>
+					<td>Best evening</td>
+					<td>Best evening</td>
+				</tr>
+
+				<tr>
+					<td>C/2019 Y4 (ATLAS)</td>
+					<td>12.0</td>
+					<td>steady</td>
+					<td>81N to 90S</td>
+					<td>Best morning</td>
+					<td>Best morning</td>
+				</tr>
+
+				<tr>
+					<td>D/1978 R1 (Haneda-Campos)</td>
+					<td>12.5</td>
+					<td>fade</td>
+					<td>90N to 77S</td>
+					<td>Best morning</td>
+					<td>Best morning</td>
+				</tr>
+
+				<tr>
+					<td>C/2019 N1 (ATLAS)</td>
+					<td>12.5</td>
+					<td>bright</td>
+					<td>68N to 90S</td>
+					<td>Early evening</td>
+					<td>Early evening</td>
+				</tr>
+
+				<tr>
+					<td>C/2017 T2 (PANSTARRS)</td>
+					<td>13.0</td>
+					<td>fade</td>
+					<td>68N to 90S</td>
+					<td>Poor elongation</td>
+					<td>Poor elongation</td>
+				</tr>
+
+				<tr>
+					<td>398P/Boattini</td>
+					<td>13.0</td>
+					<td>bright</td>
+					<td>78N to 90S</td>
+					<td>Best morning</td>
+					<td>Best morning</td>
+				</tr>
+
+				<tr>
+					<td>162P/Siding Spring</td>
+					<td>13.0</td>
+					<td>steady</td>
+					<td>75N to 90S</td>
+					<td>Evening</td>
+					<td>Best evening</td>
+				</tr>
+
+				<tr>
+					<td>29P/Schwassmann-Wachmann</td>
+					<td>13.0</td>
+					<td>steady</td>
+					<td>90N to 64S</td>
+					<td>Best evening</td>
+					<td>Best evening</td>
+				</tr>
+
+				<tr>
+					<td>P/2013 PA104 (PANSTARRS)</td>
+					<td>13.5</td>
+					<td>fade</td>
+					<td>84N to 90S</td>
+					<td>Best evening</td>
+					<td>Best evening</td>
+				</tr>
+
+				<tr>
+					<td>75D/Kohoutek</td>
+					<td>13.5</td>
+					<td>steady</td>
+					<td>90N to 68S</td>
+					<td>Best evening</td>
+					<td>Best evening</td>
+				</tr>
+
+				<tr>
+					<td>C/2019 L3 (ATLAS)</td>
+					<td>14.0</td>
+					<td>bright</td>
+					<td>90N to 29S</td>
+					<td>All night</td>
+					<td>Never up</td>
+				</tr>
+
+				<tr>
+					<td>10P/Tempel</td>
+					<td>14.0</td>
+					<td>bright</td>
+					<td>75N to 90S</td>
+					<td>Poor elongation</td>
+					<td>Poor elongation</td>
+				</tr>
+
+				<tr>
+					<td>141P-H/Machholz</td>
+					<td>14.0</td>
+					<td>steady</td>
+					<td>65N to 90S</td>
+					<td>Early evening</td>
+					<td>Early evening</td>
+				</tr>
+
+				</tbody>
+			</table>
+          </div>
+
+<p style="margin-top: 10px">The observable region is an approximate indication of the latitude at which the comet may be seen. The period when visible is calculated for latitude 45Â°N and 45Â°S.</p>
+<!--List of comets maintained by Jonathan Shanklin at <a href="http://www.ast.cam.ac.uk/~jds" target="_top">http://www.ast.cam.ac.uk/~jds</a>.-->
+        </div>
+      </div>
+      </div>	  
+   
+<!-- NEWS ITEMS -->
+	<div class="sub-page">
+	<div class="head">
+		<h3>Latest news</h3>
+	</div> 
+
+        <div class="news-item">
+
+          <a href="show?id=650"><img src="images/news/t_Philae_touchdown_sites_in_context_pillars.jpg" alt="" width="100" /></a>
+
+          <div class="news-date">
+            Oct. 29, 2020 
+          </div>
+
+          <h4><a href="show?id=650">Philaeâs second touchdown site discovered at âskull-topâ ridge</a></h4>
+          <p>After years of detective work, the second touchdown site of Rosettaâs Philae lander has been located on Comet 67P/Churyumov-Gerasimenko in a site that resembles the shape of a skull. Philae left its imprint in billions-of-years-old ice, revealing that the cometâs icy interior is softer than cappuccino froth.</p>
+
+          <p><a href="show?id=650" class="more-link">more...</a></p>
+          <div style="clear: both;"></div>
+        </div>
+
+        <div class="news-item-odd">
+
+          <div class="news-date">
+            Sep. 22, 2020 
+          </div>
+
+          <h4><a href="show?id=649">QHYCCD Camera type keys </a></h4>
+          <p>In order to unify the camera type abbreviation keys of all QHYCCD camera models, we had to change some of the currently used camera type keys.</p>
+
+          <p><a href="show?id=649" class="more-link">more...</a></p>
+          <div style="clear: both;"></div>
+        </div>
+
+        <div class="news-item">
+
+          <a href="show?id=648"><img src="images/news/t_200921113857_1_900x600.jpg" alt="" width="100" /></a>
+
+          <div class="news-date">
+            Sep. 21, 2020 
+          </div>
+
+          <h4><a href="show?id=648">Comet discovered to have its own northern lights</a></h4>
+          <p>Comet 67P/Churyumov-Gerasimenko has its own far-ultraviolet aurora, data reveal. It is the first time such electromagnetic emissions in the far-ultraviolet have been documented on a celestial object other than a planet or moon.</p>
+
+          <p><a href="show?id=648" class="more-link">more...</a></p>
+          <div style="clear: both;"></div>
+        </div>
+
+        <div class="news-item-odd">
+
+          <a href="show?id=647"><img src="images/news/t_C2020_S3_Sept_19_2020_Guido_L07.jpg" alt="" width="100" /></a>
+
+          <div class="news-date">
+            Sep. 21, 2020 
+          </div>
+
+          <h4><a href="show?id=647">New Comet C/2020 S3 (Erasmus)</a></h4>
+          <p>CBET 4885 &amp; MPEC 2020-S119, issued on 2020, September 20, announce the discovery of a comet (magnitude ~18.5) by Nicolas Erasmus (South African Astronomical Observatory), in four 30-s CCD images taken in 5&quot; seeing on Sept. 17.6 UT with a 0.5-m f/2 Schmidt reflector at Mauna Loa, Hawaii, in the course of the &quot;Asteroid Terrestrial-Impact Last Alert System&quot; (ATLAS) search program. The new comet has been designated C/2020 S3 (Erasmus).</p>
+
+          <p><a href="show?id=647" class="more-link">more...</a></p>
+          <div style="clear: both;"></div>
+        </div>
+
+        <div class="news-item">
+
+          <a href="show?id=646"><img src="images/news/t_Rainbow_comet_with_a_heart_of_sponge.jpg" alt="" width="100" /></a>
+
+          <div class="news-date">
+            Sep. 07, 2020 
+          </div>
+
+          <h4><a href="show?id=646">Rainbow comet with a heart of sponge</a></h4>
+          <p>A permeable heart with a hardened facade âthe resting place of Rosettaâs lander on comet 67P/Churyumov-Gerasimenko is revealing more about the interior of the &apos;rubber duck&apos; shaped-body looping around the Sun.</p>
+
+          <p><a href="show?id=646" class="more-link">more...</a></p>
+          <div style="clear: both;"></div>
+        </div>
+
+      </div>
+
+
+	   
+<!-- footer -->
+  
+  <div id="footer">
+    <div id="inner-footer">
+    <div id="footer-box">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/news?page=1">News</a></li>
+        <li><a href="/observations">Observations</a></li>
+        <li><a href="/analysis">Analysis</a></li>
+        <li><a href="/statistics">Statistics</a></li>
+        <li><a href="/help?page=icq_format">Help</a></li>        
+        <li><a href="/links">Links</a></li>
+      </ul>
+    </div>
+      <p class="footer-text"><a rel="license" href="help?page=data_policy">COBS Copyright &copy;</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 <img alt="Creative Commons License" style="border-width:0" src="images/structure/cc-byncsa-80x15.png" /></a></p>
+    </div>
+  </div>
+<!-- end footer -->
+
+</body>
+</html>
